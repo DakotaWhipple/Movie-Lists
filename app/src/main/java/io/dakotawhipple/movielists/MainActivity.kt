@@ -8,7 +8,9 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import io.dakotawhipple.movielists.media.MovieInfo
 import io.dakotawhipple.movielists.ui.theme.MovieListsTheme
+import com.google.accompanist.coil.CoilImage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,5 +36,12 @@ fun Greeting(name: String) {
 fun DefaultPreview() {
     MovieListsTheme {
         Greeting("Android")
+    }
+}
+
+@Composable
+fun posterImage(movie: MovieInfo) {
+    Surface {
+        CoilImage()
     }
 }
