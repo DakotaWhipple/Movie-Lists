@@ -3,10 +3,12 @@ package io.dakotawhipple.movielists
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import io.dakotawhipple.movielists.media.MovieInfo
 import io.dakotawhipple.movielists.ui.theme.MovieListsTheme
@@ -19,7 +21,7 @@ class MainActivity : ComponentActivity() {
             MovieListsTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    PosterImage()//Greeting("Android")
                 }
             }
         }
@@ -40,8 +42,12 @@ fun DefaultPreview() {
 }
 
 @Composable
-fun posterImage(movie: MovieInfo) {
+fun PosterImage(movie: MovieInfo? = null) {
     Surface {
-        CoilImage()
+        CoilImage(
+            data = "https://www.themoviedb.org/t/p/original/7lyBcpYB0Qt8gYhXYaEZUNlNQAv.jpg",
+            contentDescription = "movie poster",
+            modifier = Modifier.fillMaxSize()
+        )
     }
 }
